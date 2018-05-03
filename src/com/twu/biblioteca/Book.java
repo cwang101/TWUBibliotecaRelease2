@@ -1,25 +1,18 @@
 package com.twu.biblioteca;
 
+import java.util.Objects;
+
 public class Book {
-    long libraryId;
     String name;
     String author;
     String publishedYear;
 
-    public Book(long libraryId, String name, String author, String publishedYear) {
-        this.libraryId = libraryId;
+    public Book( String name, String author, String publishedYear) {
         this.name = name;
         this.author = author;
         this.publishedYear = publishedYear;
     }
 
-    public long getLibraryId() {
-        return libraryId;
-    }
-
-    public void setLibraryId(long libraryId) {
-        this.libraryId = libraryId;
-    }
 
     public String getName() {
         return name;
@@ -43,5 +36,21 @@ public class Book {
 
     public void setPublishedYear(String publishedYear) {
         this.publishedYear = publishedYear;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(name, book.name) &&
+                Objects.equals(author, book.author) &&
+                Objects.equals(publishedYear, book.publishedYear);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(name, author, publishedYear);
     }
 }

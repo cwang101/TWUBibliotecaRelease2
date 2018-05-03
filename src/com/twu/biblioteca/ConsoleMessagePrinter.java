@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -41,13 +42,31 @@ public class ConsoleMessagePrinter {
 
     }
     public static void main(String[] args) {
-        List<Book> books= Arrays.asList(new Book(1,"One Hundred Years of Solitude","Gabriel Garcia Marquez","2000-08"),
-                new Book(1,"The City in History","Lewis Mumford","2005-02"),
-                new Book(1,"The Death and Life of Great American Cities","Jacobs Jane","2005-05"));
+        List<Book> books= Arrays.asList(new Book("One Hundred Years of Solitude","Gabriel Garcia Marquez","2000-08"),
+                new Book("The City in History","Lewis Mumford","2005-02"),
+                new Book("The Death and Life of Great American Cities","Jacobs Jane","2005-05"));
 
-      Library  library=new Library(1,books);
+      Library  library=new Library(1,new ArrayList<>(books));
         ConsoleMessagePrinter printer=  new ConsoleMessagePrinter();
         //printer.printBookList(library);
-        printer.showMenu(new Menu(Arrays.asList("List Books")));
+       // printer.showMenu(new Menu(Arrays.asList("List Books")));
+        printer.printCheckOutMessage(library,"The City in History");
+
+    }
+
+    public void printCheckOutMessage(Library library, String bookName) {
+        if(library.checkOut(bookName)){
+            System.out.print("Thank you! Enjoy the book\n");
+            return;
+        }
+        System.out.print("That book is not available.\n");
+    }
+
+    public void printGiveBackMessage(Library library, String bookName){
+        if(library.giveBack(bookName)){
+            System.out.print("Thank you for returning the book.\n");
+            return;
+        }
+        System.out.print("That is not a valid book to return.\n");
     }
 }
