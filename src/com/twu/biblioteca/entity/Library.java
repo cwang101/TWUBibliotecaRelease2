@@ -1,4 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.entity;
+
+import com.twu.biblioteca.entity.Book;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +21,16 @@ public class Library {
         this.books = books;
     }
 
-   public List<Book> getAllBooks(){
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public List<Book> getUnavailable() {
+        return unavailable;
+    }
+
+    public List<Book> getAllBooks(){
         List<Book> clone=new ArrayList<>();
         clone.addAll(this.books);
        return clone;

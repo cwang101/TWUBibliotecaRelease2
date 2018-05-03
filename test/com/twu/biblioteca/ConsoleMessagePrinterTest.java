@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.entity.Book;
+import com.twu.biblioteca.entity.Library;
+import com.twu.biblioteca.entity.Menu;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -84,8 +87,8 @@ public class ConsoleMessagePrinterTest {
         List<Book> expectedUnavailable=new ArrayList<>(Arrays.asList(new Book("The City in History","Lewis Mumford","2005-02")));
         printer.printCheckOutMessage(library,"The City in History");
         assertTrue(systemOut().endsWith(expectedOut));
-        assertEquals(expectedBooks,library.books);
-        assertEquals(expectedUnavailable,library.unavailable);
+        assertEquals(expectedBooks,library.getBooks());
+        assertEquals(expectedUnavailable,library.getUnavailable());
     }
 
     @Test
@@ -105,8 +108,8 @@ public class ConsoleMessagePrinterTest {
         printer.printCheckOutMessage(library,"The City in History");
         printer.printGiveBackMessage(library,"The City in History");
         assertTrue(systemOut().endsWith(expectedOut));
-        assertEquals(expectedBooks,library.books);
-        assertEquals(expectedUnavailable,library.unavailable);
+        assertEquals(expectedBooks,library.getBooks());
+        assertEquals(expectedUnavailable,library.getUnavailable());
     }
 
     @Test

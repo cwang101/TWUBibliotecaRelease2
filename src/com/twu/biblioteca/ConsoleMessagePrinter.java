@@ -1,5 +1,9 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.entity.Book;
+import com.twu.biblioteca.entity.Library;
+import com.twu.biblioteca.entity.Menu;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +21,7 @@ public class ConsoleMessagePrinter {
         "================================================\n");
         List<Book> books=library.getAllBooks();
         IntStream.range(0,books.size())
-                .mapToObj(index->(index+1)+"|"+books.get(index).getName()+"|"+books.get(index).getAuthor()+"|"+books.get(index).publishedYear+"\n")
+                .mapToObj(index->(index+1)+"|"+books.get(index).getName()+"|"+books.get(index).getAuthor()+"|"+books.get(index).getPublishedYear()+"\n")
                 .forEach(System.out::print);
 
         System.out.print( "================================================\n");
