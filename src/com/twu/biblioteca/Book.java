@@ -1,24 +1,24 @@
 package com.twu.biblioteca;
 
 public class Book {
-    long id;
+    long libraryId;
     String name;
     String author;
     String publishedYear;
 
-    public Book(long id, String name, String author, String publishedYear) {
-        this.id = id;
+    public Book(long libraryId, String name, String author, String publishedYear) {
+        this.libraryId = libraryId;
         this.name = name;
         this.author = author;
         this.publishedYear = publishedYear;
     }
 
-    public long getId() {
-        return id;
+    public long getLibraryId() {
+        return libraryId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setLibraryId(long libraryId) {
+        this.libraryId = libraryId;
     }
 
     public String getName() {
