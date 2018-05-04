@@ -1,8 +1,6 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.entity.Account;
-import com.twu.biblioteca.entity.Book;
-import com.twu.biblioteca.entity.Library;
+import com.twu.biblioteca.entity.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -18,15 +16,16 @@ public class AccountTest {
     Library library;
 
     public AccountTest() {
-        List<Book> books= Arrays.asList(new Book("One Hundred Years of Solitude","Gabriel Garcia Marquez","2000-08"),
+        List<Article> articles= Arrays.asList(new Book("One Hundred Years of Solitude","Gabriel Garcia Marquez","2000-08"),
                 new Book("The City in History","Lewis Mumford","2005-02"),
-                new Book("The Death and Life of Great American Cities","Jacobs Jane","2005-05"));
-
-        library=new Library(1,new ArrayList<>(books));
+                new Book("The Death and Life of Great American Cities","Jacobs Jane","2005-05"),
+                new Movie("The Great Gatsby ","2013","Baz Luhrmann",8),
+                new Movie("The Shawshank Redemption","1994","Frank Darabont",9),
+                new Movie("Predestination","2014","Peter Spierig",9));
 
         List<Account> accounts=Arrays.asList(new Account("123-4322","123","Jim","Jim@hotmail","NewYork","911"),
                 new Account("211-4356","123","Sam","Sam@hotmail","NewYork","911"));
-        library.addAccouts(accounts);
+        library=new Library(1,new ArrayList<>(accounts),new ArrayList<>(articles));
 
     }
 

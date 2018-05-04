@@ -2,7 +2,7 @@ package com.twu.biblioteca.entity;
 
 import java.util.Objects;
 
-public class Book extends Articles{
+public class Book extends Article {
     String name;
     String author;
     String publishedYear;

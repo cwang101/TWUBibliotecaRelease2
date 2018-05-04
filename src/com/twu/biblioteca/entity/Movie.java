@@ -2,13 +2,13 @@ package com.twu.biblioteca.entity;
 
 import java.util.Objects;
 
-public class Movie extends Articles{
+public class Movie extends Article {
     String name;
     String year;
     String director;
-    String rating;
+    int rating;
 
-    public Movie(String name, String year, String director, String rating) {
+    public Movie(String name, String year, String director, int rating) {
         this.name = name;
         this.year = year;
         this.director = director;
@@ -27,7 +27,7 @@ public class Movie extends Articles{
         return director;
     }
 
-    public String getRating() {
+    public int getRating() {
         return rating;
     }
 
@@ -36,10 +36,10 @@ public class Movie extends Articles{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Movie movie = (Movie) o;
-        return Objects.equals(name, movie.name) &&
+        return rating == movie.rating &&
+                Objects.equals(name, movie.name) &&
                 Objects.equals(year, movie.year) &&
-                Objects.equals(director, movie.director) &&
-                Objects.equals(rating, movie.rating);
+                Objects.equals(director, movie.director);
     }
 
     @Override

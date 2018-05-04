@@ -1,4 +1,4 @@
 package com.twu.biblioteca.entity;
 
-public class Articles {
+public class Article {
 }
