@@ -4,6 +4,7 @@ import com.twu.biblioteca.entity.Book;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Library {
@@ -12,6 +13,8 @@ public class Library {
     List<Book> books=new ArrayList<>();
 
     List<Book> unavailable=new ArrayList<>();
+
+    List<Account> accounts=new ArrayList<>();
     public Library(long id) {
         this.id=id;
     }
@@ -20,6 +23,11 @@ public class Library {
         this(id);
         this.books = books;
     }
+
+    public void addAccouts(List<Account> accounts){
+        this.accounts.addAll(accounts);
+    }
+
 
 
     public List<Book> getBooks() {
@@ -46,4 +54,13 @@ public class Library {
         books.addAll(unavailable.stream().filter(book-> book.getName().equals(bookName)).collect(Collectors.toList())) ;
         return unavailable.removeIf(book-> book.getName().equals(bookName));
     }
+
+    public Account login(String username,String password){
+        Optional<Account> user= accounts.stream().filter(account -> account.userName.equals(username)&&account.password.equals(password)).findFirst();
+        if(user.isPresent()){
+            return user.get();
+        }
+        return null;
+    }
+
 }
